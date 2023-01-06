@@ -9,7 +9,7 @@ public class Page {
         out.println("<html>");
         out.println("<head>");
         out.println("<mata charset='UTF-8'>");
-        out.println("<title>Servlet/JSp Sample Programs</title>");
+        out.println("<title>Servlet/JSP Sample Programs</title>");
         out.println("</head>");
         out.println("<body>");
     }
