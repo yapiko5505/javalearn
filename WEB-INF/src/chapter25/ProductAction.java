@@ -1,4 +1,4 @@
-package chapter23;
+package chapter25;
 
 import bean.Product;
 import dao.ProductDAO;
@@ -6,7 +6,7 @@ import tool.Action;
 import javax.servlet.http.*;
 import java.util.List;
 
-public class SearchAction extends Action {
+public class ProductAction extends Action {
 
     public String execute(
         HttpServletRequest request, HttpServletResponse response
@@ -14,18 +14,15 @@ public class SearchAction extends Action {
 
         HttpSession session=request.getSession();
 
-        if (session.getAttribute("staff")==null) {
-            return "preview-error-login.jsp";
-        }
-
         String keyword=request.getParameter("keyword");
+        if (keyword==null) keyword="";
 
         ProductDAO dao=new ProductDAO();
         List<Product> list=dao.search(keyword);
 
-        request.setAttribute("list", list);
+        session.setAttribute("list", list);
 
-        return "list.jsp";
+        return "product.jsp";
     }
     
 }

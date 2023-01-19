@@ -1,7 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@include file="../header.html" %>
-<%@include file="../chapter23/staffmenu.jsp" %>
+<%@include file="staffmenu.jsp" %>
 
-こんにちは、 ${staff.login} さん。
+ドーナツshopスタッフページにようこそ！
 
 <%@include file="../footer.html" %>
