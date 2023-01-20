@@ -12,6 +12,13 @@ public class InsertAction extends Action {
         HttpServletRequest request, HttpServletResponse response
     ) throws Exception {
 
+        HttpSession session=request.getSession();
+
+        if (session.getAttribute("staff")==null) {
+            return "preview-error-login.jsp";
+        }
+
+
         String name=request.getParameter("name");
         Integer price=Integer.parseInt(request.getParameter("price"));
 
