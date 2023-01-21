@@ -18,17 +18,18 @@ public class DeleteAction extends Action {
             return "preview-error-login.jsp";
         }
 
-        Integer id=Integer.parseInt(request.getParameter("id"));
         String name=request.getParameter("name");
         Integer price=Integer.parseInt(request.getParameter("price"));
 
-        if (id !=null) {
-            ProductDAO dao=new ProductDAO();
-            List<Product> list=dao.delete(p);
-        }
-       
-        // request.setAttribute("list", list);
+        Product p=new Product();
+        p.setName(name);
+        p.setPrice(price);
+        ProductDAO dao=new ProductDAO();
+        dao.delete(p);
 
+        List<Product> list=dao.search("");
+        request.setAttribute("list", list);
+        
         return "list.jsp";
     }
     

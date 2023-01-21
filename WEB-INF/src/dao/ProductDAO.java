@@ -50,16 +50,18 @@ public class ProductDAO extends DAO {
 
    
     
-    public int delete(Integer id) throws Exception {
+    public int delete(Product product) throws Exception {
 
         Connection con=getConnection();
 
-        PreparedStatement st=con.prepareStatement("delete from product where id=?");
-        st.setInt(1, id);
+        PreparedStatement st=con.prepareStatement("delete from product where name=? and price=?");
+        st.setString(1, product.getName());
+        st.setInt(2, product.getPrice());
         int line=st.executeUpdate();
-
+        
         st.close();
         con.close();
+
         return line;
 
     }
