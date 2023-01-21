@@ -3,7 +3,8 @@
 
 <p>削除項目を入力してください。</p>
 <form action="delete" method="post">
-    <input type="text" name="name">
+    商品名<input type="text" name="name">
+    価格<input type="text" name="price">
     <input type="submit" value="削除">
 </form>
 

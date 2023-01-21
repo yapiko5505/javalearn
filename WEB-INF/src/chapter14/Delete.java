@@ -24,12 +24,14 @@ public class Delete extends HttpServlet {
             Connection con=ds.getConnection();
 
             String name=request.getParameter("name");
+            int price=Integer.parseInt(request.getParameter("price"));
 
-            PreparedStatement st=con.prepareStatement("delete from product where name=?");
-            st.setString(1, "name");
+            PreparedStatement st=con.prepareStatement("delete from product where name=? and price=?");
+            st.setString(1, name);
+            st.setInt(2, price);
             int line=st.executeUpdate();
 
-            if (line>0) {
+            if (line!=0) {
                 out.println("削除しました。");
             }
 
