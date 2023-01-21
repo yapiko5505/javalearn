@@ -3,7 +3,7 @@
 
 <p>削除する商品を入力してください。</P>
 <form action="Search.action" method="post">
-    <input type="text" name="keyword">
+    <input type="text" name="id">
     <input type="submit" value="削除">
 </form>
 

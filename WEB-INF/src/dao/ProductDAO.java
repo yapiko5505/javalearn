@@ -1,6 +1,8 @@
 package dao;
 
 import bean.Product;
+import chapter14.Search;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,5 +47,24 @@ public class ProductDAO extends DAO {
 
         return line;
     }
+
+   
+    
+    public int delete(Integer id) throws Exception {
+
+        Connection con=getConnection();
+
+        PreparedStatement st=con.prepareStatement("delete from product where id=?");
+        st.setInt(1, id);
+        int line=st.executeUpdate();
+
+        st.close();
+        con.close();
+        return line;
+
+    }
+    
+   
+   
     
 }

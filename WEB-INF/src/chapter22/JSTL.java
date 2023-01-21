@@ -16,12 +16,6 @@ public class JSTL extends HttpServlet{
         HttpServletRequest request, HttpServletResponse response
     ) throws ServletException, IOException {
 
-        HttpSession session=request.getSession();
-
-        if (session.getAttribute("staff")==null) {
-            return "preview-error-login.jsp";
-        }
-
         PrintWriter out=response.getWriter();
         try {
             ProductDAO dao=new ProductDAO();

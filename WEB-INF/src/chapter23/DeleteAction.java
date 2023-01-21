@@ -12,13 +12,22 @@ public class DeleteAction extends Action {
         HttpServletRequest request, HttpServletResponse response
     ) throws Exception {
 
-        String keyword=request.getParameter("keyword");
+        HttpSession session=request.getSession();
 
-        ProductDAO dao=new ProductDAO();
-        List<Product> list=dao.delete(keyword);
-        // dao.delete(p);
+        if (session.getAttribute("staff")==null) {
+            return "preview-error-login.jsp";
+        }
 
-        request.setAttribute("list", list);
+        Integer id=Integer.parseInt(request.getParameter("id"));
+        String name=request.getParameter("name");
+        Integer price=Integer.parseInt(request.getParameter("price"));
+
+        if (id !=null) {
+            ProductDAO dao=new ProductDAO();
+            List<Product> list=dao.delete(p);
+        }
+       
+        // request.setAttribute("list", list);
 
         return "list.jsp";
     }
